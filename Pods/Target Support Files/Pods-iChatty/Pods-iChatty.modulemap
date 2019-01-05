@@ -1,0 +1,6 @@
+framework module Pods_iChatty {
+  umbrella header "Pods-iChatty-umbrella.h"
+
+  export *
+  module * { export * }
+}
