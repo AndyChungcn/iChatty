@@ -19,6 +19,12 @@
 		5CD1630B21E08B2E006BE081 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD1630A21E08B2E006BE081 /* GradientView.swift */; };
 		5CD1630D21E08D3C006BE081 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD1630C21E08D3C006BE081 /* LoginVC.swift */; };
 		5CD1630F21E08D49006BE081 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD1630E21E08D49006BE081 /* CreateAccountVC.swift */; };
+		5CD1631121E0A6DB006BE081 /* AvatarPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD1631021E0A6DB006BE081 /* AvatarPickerVC.swift */; };
+		5CD1631421E0A7B6006BE081 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD1631321E0A7B6006BE081 /* AuthService.swift */; };
+		5CD1631621E0A7C1006BE081 /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD1631521E0A7C1006BE081 /* UserDataService.swift */; };
+		5CD1631821E0CC06006BE081 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD1631721E0CC06006BE081 /* RoundedButton.swift */; };
+		5CD1631A21E0CCBD006BE081 /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD1631921E0CCBD006BE081 /* CircleImage.swift */; };
+		5CD1631C21E0D0B3006BE081 /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD1631B21E0D0B3006BE081 /* AvatarCell.swift */; };
 		B3F0FC3C100497CAB5E387B2 /* Pods_iChatty.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67F27E8CCF7B7E098F8BF607 /* Pods_iChatty.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +45,12 @@
 		5CD1630A21E08B2E006BE081 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		5CD1630C21E08D3C006BE081 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		5CD1630E21E08D49006BE081 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
+		5CD1631021E0A6DB006BE081 /* AvatarPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerVC.swift; sourceTree = "<group>"; };
+		5CD1631321E0A7B6006BE081 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		5CD1631521E0A7C1006BE081 /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
+		5CD1631721E0CC06006BE081 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		5CD1631921E0CCBD006BE081 /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		5CD1631B21E0D0B3006BE081 /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
 		67F27E8CCF7B7E098F8BF607 /* Pods_iChatty.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iChatty.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6E90DCF3FDD5936CC4BF1015 /* Pods-iChatty.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iChatty.debug.xcconfig"; path = "Target Support Files/Pods-iChatty/Pods-iChatty.debug.xcconfig"; sourceTree = "<group>"; };
 		6EF1E0AFF42818680C38A5C0 /* Pods-iChatty.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iChatty.release.xcconfig"; path = "Target Support Files/Pods-iChatty/Pods-iChatty.release.xcconfig"; sourceTree = "<group>"; };
@@ -86,6 +98,7 @@
 		5CD162EA21E07C81006BE081 /* iChatty */ = {
 			isa = PBXGroup;
 			children = (
+				5CD1631221E0A7AD006BE081 /* Services */,
 				5CD1630921E08B22006BE081 /* View */,
 				5CD1630621E08B06006BE081 /* Utilities */,
 				5CD1630121E08944006BE081 /* Controller */,
@@ -109,6 +122,7 @@
 				5CD1630421E0895C006BE081 /* ChannelVC.swift */,
 				5CD1630C21E08D3C006BE081 /* LoginVC.swift */,
 				5CD1630E21E08D49006BE081 /* CreateAccountVC.swift */,
+				5CD1631021E0A6DB006BE081 /* AvatarPickerVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -125,8 +139,20 @@
 			isa = PBXGroup;
 			children = (
 				5CD1630A21E08B2E006BE081 /* GradientView.swift */,
+				5CD1631721E0CC06006BE081 /* RoundedButton.swift */,
+				5CD1631921E0CCBD006BE081 /* CircleImage.swift */,
+				5CD1631B21E0D0B3006BE081 /* AvatarCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		5CD1631221E0A7AD006BE081 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5CD1631321E0A7B6006BE081 /* AuthService.swift */,
+				5CD1631521E0A7C1006BE081 /* UserDataService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		85A29CBF1D8B8695AD6F958A /* Frameworks */ = {
@@ -265,14 +291,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				5CD1630321E08953006BE081 /* ChatVC.swift in Sources */,
+				5CD1631121E0A6DB006BE081 /* AvatarPickerVC.swift in Sources */,
 				5CD162EE21E07C81006BE081 /* ViewController.swift in Sources */,
+				5CD1631A21E0CCBD006BE081 /* CircleImage.swift in Sources */,
+				5CD1631C21E0D0B3006BE081 /* AvatarCell.swift in Sources */,
 				5CD1630D21E08D3C006BE081 /* LoginVC.swift in Sources */,
 				5CD162EC21E07C81006BE081 /* AppDelegate.swift in Sources */,
+				5CD1631421E0A7B6006BE081 /* AuthService.swift in Sources */,
+				5CD1631621E0A7C1006BE081 /* UserDataService.swift in Sources */,
 				5CD1630021E07E91006BE081 /* SWRevealViewController.m in Sources */,
 				5CD1630F21E08D49006BE081 /* CreateAccountVC.swift in Sources */,
 				5CD1630B21E08B2E006BE081 /* GradientView.swift in Sources */,
 				5CD1630521E0895C006BE081 /* ChannelVC.swift in Sources */,
 				5CD1630821E08B0F006BE081 /* Constants.swift in Sources */,
+				5CD1631821E0CC06006BE081 /* RoundedButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
