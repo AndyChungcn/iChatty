@@ -19,9 +19,25 @@ class ChannelVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.delegate = self
+        tableView.dataSource = self
         self.revealViewController()?.rearViewRevealWidth = self.view.frame.size.width - 60
         
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.userDataChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+        
+        SocketService.instance.getChannel { (success) in
+            if success {
+                self.tableView.reloadData()
+            }
+        }
+        
+        if AuthService.instance.isLoggedIn {
+            MessageService.instance.findAllChannel { (success) in
+                if success {
+                    self.tableView.reloadData()
+                }
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -43,7 +59,7 @@ class ChannelVC: UIViewController {
             avatarImageView.image = UIImage(named: "menuProfileIcon")
             avatarImageView.backgroundColor = UIColor.clear
         }
-        
+        tableView.reloadData()
     }
     
     @IBAction func loginBtnTapped(_ sender: Any) {
@@ -57,12 +73,12 @@ class ChannelVC: UIViewController {
     }
     
     @IBAction func addChannelBtnTapped(_ sender: Any) {
-        let addChannelVC = AddChannelVC()
-        addChannelVC.modalPresentationStyle = .custom
-        present(addChannelVC, animated: true, completion: nil)
-    }
-    
-    
+        if AuthService.instance.isLoggedIn {
+            let addChannelVC = AddChannelVC()
+            addChannelVC.modalPresentationStyle = .custom
+            present(addChannelVC, animated: true, completion: nil)
+        }
+    }        
 }
 
 extension ChannelVC: UITableViewDataSource, UITableViewDelegate {

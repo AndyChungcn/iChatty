@@ -9,13 +9,13 @@
 import UIKit
 
 class ChatVC: UIViewController {
-
+    
     // Outlets
     @IBOutlet weak var menuBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         self.view.addGestureRecognizer((self.revealViewController()?.panGestureRecognizer())!)
         self.view.addGestureRecognizer((self.revealViewController()?.tapGestureRecognizer())!)
@@ -33,13 +33,12 @@ class ChatVC: UIViewController {
             }
         }
         
-        if MessageService.instance.channels.isEmpty {
+        if AuthService.instance.isLoggedIn {
             MessageService.instance.findAllChannel { (success) in
                 if success {
-                    print("got all data")
+                    print("got all channel: \(MessageService.instance.channels)")
                 }
             }
         }
-        
     }
 }

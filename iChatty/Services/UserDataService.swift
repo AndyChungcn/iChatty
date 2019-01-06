@@ -16,7 +16,7 @@ class UserDataService {
     
     public private(set) var id = ""
     public private(set) var avatarColor: String {
-        get {            
+        get {
             return defaults.value(forKey: AVATAR_COLOR) as? String ?? ""
         }
         set {
@@ -99,6 +99,7 @@ class UserDataService {
         AuthService.instance.isLoggedIn = false
         AuthService.instance.userEmail = ""
         AuthService.instance.authToken = ""
+        MessageService.instance.removeAllChannels()
     }
     
 }

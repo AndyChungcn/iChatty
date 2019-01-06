@@ -22,7 +22,11 @@ class ProfileVC: UIViewController {
     
 
     @IBAction func logoutBtnTapped(_ sender: Any) {
+        UserDataService.instance.logoutUser()
         
+        
+        
+        dismiss(animated: true, completion: nil)
     }
     
     func setupView() {

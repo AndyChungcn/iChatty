@@ -16,14 +16,7 @@ class MessageService {
     
     let defaults = UserDefaults.standard
     
-    var channels: [Channel] {
-        get {
-            return defaults.value(forKey: CHANNEL_KEY) as? [Channel] ?? []
-        }
-        set {
-            defaults.setValue(newValue, forKey: CHANNEL_KEY)
-        }
-    }
+    var channels: [Channel] = []
     
     func findAllChannel(completion: @escaping CompletionHandler) {
         Alamofire.request(URL_GET_CHANNELS, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
@@ -50,6 +43,10 @@ class MessageService {
             }
             
         }
+    }
+    
+    func removeAllChannels() {
+        channels.removeAll()
     }
     
 }

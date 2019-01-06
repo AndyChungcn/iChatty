@@ -12,8 +12,8 @@
 		5CBD373F21E22A4400B30250 /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD373E21E22A4400B30250 /* ChannelCell.swift */; };
 		5CBD374121E22D8300B30250 /* AddChannelVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CBD374021E22D8300B30250 /* AddChannelVC.xib */; };
 		5CBD374321E22DBC00B30250 /* AddChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD374221E22DBC00B30250 /* AddChannelVC.swift */; };
+		5CBD374521E23D4800B30250 /* SocketService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD374421E23D4800B30250 /* SocketService.swift */; };
 		5CD162EC21E07C81006BE081 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD162EB21E07C81006BE081 /* AppDelegate.swift */; };
-		5CD162EE21E07C81006BE081 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CD162ED21E07C81006BE081 /* ViewController.swift */; };
 		5CD162F121E07C81006BE081 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CD162EF21E07C81006BE081 /* Main.storyboard */; };
 		5CD162F321E07C83006BE081 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CD162F221E07C83006BE081 /* Assets.xcassets */; };
 		5CD162F621E07C83006BE081 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5CD162F421E07C83006BE081 /* LaunchScreen.storyboard */; };
@@ -41,9 +41,9 @@
 		5CBD373E21E22A4400B30250 /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		5CBD374021E22D8300B30250 /* AddChannelVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddChannelVC.xib; sourceTree = "<group>"; };
 		5CBD374221E22DBC00B30250 /* AddChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChannelVC.swift; sourceTree = "<group>"; };
+		5CBD374421E23D4800B30250 /* SocketService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketService.swift; sourceTree = "<group>"; };
 		5CD162E821E07C81006BE081 /* iChatty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChatty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CD162EB21E07C81006BE081 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5CD162ED21E07C81006BE081 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5CD162F021E07C81006BE081 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5CD162F221E07C83006BE081 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CD162F521E07C83006BE081 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -127,7 +127,6 @@
 				5CD1630621E08B06006BE081 /* Utilities */,
 				5CD1630121E08944006BE081 /* Controller */,
 				5CD162EB21E07C81006BE081 /* AppDelegate.swift */,
-				5CD162ED21E07C81006BE081 /* ViewController.swift */,
 				5CD162EF21E07C81006BE081 /* Main.storyboard */,
 				5CD162F221E07C83006BE081 /* Assets.xcassets */,
 				5CD162F421E07C83006BE081 /* LaunchScreen.storyboard */,
@@ -179,6 +178,7 @@
 				5CD1631321E0A7B6006BE081 /* AuthService.swift */,
 				5CD1631521E0A7C1006BE081 /* UserDataService.swift */,
 				5CBD373C21E2234200B30250 /* MessageService.swift */,
+				5CBD374421E23D4800B30250 /* SocketService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -329,10 +329,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CBD374521E23D4800B30250 /* SocketService.swift in Sources */,
 				5CBD373D21E2234200B30250 /* MessageService.swift in Sources */,
 				5CD1630321E08953006BE081 /* ChatVC.swift in Sources */,
 				5CD1631121E0A6DB006BE081 /* AvatarPickerVC.swift in Sources */,
-				5CD162EE21E07C81006BE081 /* ViewController.swift in Sources */,
 				5CD1631A21E0CCBD006BE081 /* CircleImage.swift in Sources */,
 				5CBD373B21E222E700B30250 /* Channel.swift in Sources */,
 				5CD1632121E0E936006BE081 /* ProfileVC.swift in Sources */,

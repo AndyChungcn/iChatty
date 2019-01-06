@@ -33,7 +33,14 @@ class AddChannelVC: UIViewController {
     }
     
     @IBAction func createChannelBtnTapped(_ sender: Any) {
-        
+        guard let channelName = nameLabel.text, channelName != "" else { return }
+        guard let channelDesc = descriptionLabel.text, channelDesc != "" else { return }        
+        SocketService.instance.addChannel(channelName: channelDesc, channelDescription: channelDesc) { (success) in
+            if success {
+                print("add channel success!")
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
     @IBAction func closeBtnTapped(_ sender: Any) {
