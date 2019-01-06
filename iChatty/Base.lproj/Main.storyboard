@@ -49,8 +49,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="iSw-IX-6XR" customClass="CircleImage" customModule="iChatty" customModuleProvider="target">
-                                <rect key="frame" x="16" y="572" width="75" height="75"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="iSw-IX-6XR" customClass="CircleImage" customModule="iChatty" customModuleProvider="target">
+                                <rect key="frame" x="16" y="573" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="Z27-tb-VtD"/>
                                     <constraint firstAttribute="height" constant="75" id="mfy-ln-3Aa"/>
@@ -60,7 +60,7 @@
                                 <rect key="frame" x="0.0" y="125" width="375" height="427"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="53F-JA-g6v">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="channelCell" id="53F-JA-g6v" customClass="ChannelCell" customModule="iChatty" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="53F-JA-g6v" id="HKo-A3-Bnr">
@@ -80,6 +80,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="channelName" destination="a2M-Gk-rQy" id="ajJ-wn-va1"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -96,6 +99,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvd-Dm-Ptc">
                                 <rect key="frame" x="329" y="83" width="22" height="22"/>
                                 <state key="normal" image="addChannelButton"/>
+                                <connections>
+                                    <action selector="addChannelBtnTapped:" destination="ed7-Jr-zn8" eventType="touchUpInside" id="SwX-cH-MqE"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -120,13 +126,15 @@
                         <viewLayoutGuide key="safeArea" id="hb8-iC-gMh"/>
                     </view>
                     <connections>
+                        <outlet property="avatarImageView" destination="iSw-IX-6XR" id="Hck-h1-AtI"/>
                         <outlet property="loginBtn" destination="Epc-hL-tK2" id="IFw-oU-PC7"/>
+                        <outlet property="tableView" destination="sER-5D-fwD" id="AjV-ij-Jjd"/>
                         <segue destination="ueV-MA-P0X" kind="show" identifier="toLogin" id="j1z-4B-8XQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k8W-Sg-Nyt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="858" y="-164"/>
+            <point key="canvasLocation" x="856.79999999999995" y="-164.16791604197903"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="DcY-pM-ylP">
@@ -147,6 +155,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginBtnTapped:" destination="ueV-MA-P0X" eventType="touchUpInside" id="5BJ-rF-lQp"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="639-Fl-DYF">
                                 <rect key="frame" x="126.5" y="84" width="122.5" height="40"/>
@@ -230,12 +241,18 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="FXb-tP-uVQ">
+                                <rect key="frame" x="169" y="215" width="37" height="37"/>
+                                <color key="color" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="05y-Eu-cqD" firstAttribute="top" secondItem="z6B-Hf-HBc" secondAttribute="top" constant="8" id="2QC-yG-Anh"/>
                             <constraint firstItem="Kf9-Jq-3gV" firstAttribute="top" secondItem="hAW-Ky-Bc1" secondAttribute="bottom" constant="40" id="6rA-dp-HCl"/>
                             <constraint firstItem="639-Fl-DYF" firstAttribute="centerX" secondItem="xor-NJ-dei" secondAttribute="centerX" id="DkO-Jh-Ipl"/>
+                            <constraint firstItem="FXb-tP-uVQ" firstAttribute="centerX" secondItem="xor-NJ-dei" secondAttribute="centerX" id="Fdr-Uz-KEf"/>
+                            <constraint firstItem="FXb-tP-uVQ" firstAttribute="centerY" secondItem="xor-NJ-dei" secondAttribute="centerY" constant="-100" id="PnV-9E-YJz"/>
                             <constraint firstItem="Kf9-Jq-3gV" firstAttribute="centerX" secondItem="xor-NJ-dei" secondAttribute="centerX" id="Tme-hp-5du"/>
                             <constraint firstItem="hAW-Ky-Bc1" firstAttribute="centerX" secondItem="xor-NJ-dei" secondAttribute="centerX" id="Unc-do-uTd"/>
                             <constraint firstItem="hAW-Ky-Bc1" firstAttribute="top" secondItem="639-Fl-DYF" secondAttribute="bottom" constant="40" id="gdk-be-H31"/>
@@ -247,6 +264,9 @@
                         <viewLayoutGuide key="safeArea" id="z6B-Hf-HBc"/>
                     </view>
                     <connections>
+                        <outlet property="passwordTextfield" destination="spK-hX-Oaz" id="vtb-L8-vrM"/>
+                        <outlet property="spinner" destination="FXb-tP-uVQ" id="D0m-gc-8FD"/>
+                        <outlet property="usernameTextField" destination="bNh-bE-OMf" id="OwW-1t-sVn"/>
                         <segue destination="R9s-t5-ok6" kind="show" identifier="toCreateAccount" id="1Tj-VA-JKk"/>
                     </connections>
                 </viewController>
@@ -522,7 +542,7 @@
                                     <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="avatarCell" id="Hqe-m0-VuX" customClass="AvatarCell" customModule="Smack" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="avatarCell" id="Hqe-m0-VuX" customClass="AvatarCell" customModule="iChatty" customModuleProvider="target">
                                         <rect key="frame" x="20" y="0.0" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
