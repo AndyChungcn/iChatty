@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileVC" customModule="iChatty" customModuleProvider="target">
             <connections>
                 <outlet property="avatarImageView" destination="w3K-sZ-IdI" id="W0N-rb-hCM"/>
+                <outlet property="bgView" destination="zIj-KD-tEl" id="CUG-4O-05D"/>
                 <outlet property="emailLabel" destination="Zvq-ED-mD0" id="dnl-Vd-F5n"/>
                 <outlet property="usernameLabel" destination="bvC-Ek-jaF" id="uZm-5C-mtu"/>
                 <outlet property="view" destination="iN0-l3-epB" id="YK0-dD-ri7"/>
@@ -46,7 +47,7 @@
                                     <color key="textColor" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="w3K-sZ-IdI" customClass="CircleImage" customModule="Smack" customModuleProvider="target">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="w3K-sZ-IdI" customClass="CircleImage" customModule="iChatty" customModuleProvider="target">
                                     <rect key="frame" x="13.5" y="41.5" width="100" height="100"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="100" id="lFb-JX-CUv"/>

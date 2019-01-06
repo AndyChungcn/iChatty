@@ -15,7 +15,6 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var bgView: UIView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -27,10 +26,17 @@ class ProfileVC: UIViewController {
     }
     
     func setupView() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(closeTap))
+        bgView.addGestureRecognizer(tapGesture)
+        
         usernameLabel.text = UserDataService.instance.name
         emailLabel.text = UserDataService.instance.email
         avatarImageView.image = UIImage(named: UserDataService.instance.avatarName)
         avatarImageView.backgroundColor = UserDataService.instance.returnUIColor(components: UserDataService.instance.avatarColor)
+    }
+    
+    @objc func closeTap() {
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func closeBtnTapped(_ sender: Any) {
