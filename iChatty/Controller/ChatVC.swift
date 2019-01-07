@@ -12,6 +12,8 @@ class ChatVC: UIViewController {
     
     // Outlets
     @IBOutlet weak var menuBtn: UIButton!
+    @IBOutlet weak var channelNameLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,20 +27,40 @@ class ChatVC: UIViewController {
         print(UserDataService.instance.email)
         print("=======")
         
-        if AuthService.instance.isLoggedIn && UserDataService.instance.email == "" {
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.userDataDidChange), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.channelSelected), name: NOTIF_CHANNEL_SELECTED, object: nil)
+        
+        if AuthService.instance.isLoggedIn {
             AuthService.instance.findUserByEmail { (success) in
                 if success {
+                    print("Successfully found the user: \(UserDataService.instance.name)")
                     NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
                 }
             }
         }
-        
+    }
+    
+    
+    @objc func userDataDidChange() {
         if AuthService.instance.isLoggedIn {
-            MessageService.instance.findAllChannel { (success) in
-                if success {
-                    print("got all channel: \(MessageService.instance.channels)")
-                }
-            }
+            onLoginGetChannels()
+        } else {
+            channelNameLabel.text = "Please Login"
+        }
+    }
+    
+    @objc func channelSelected() {
+        updateWithChannel()
+    }
+    
+    func updateWithChannel() {
+        let channelName = MessageService.instance.selectedChannel?.channelTitle ?? ""
+        channelNameLabel.text = channelName
+    }
+    
+    func onLoginGetChannels() {
+        MessageService.instance.findAllChannel { (success) in
+            if success {}
         }
     }
 }

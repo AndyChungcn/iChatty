@@ -124,6 +124,17 @@ class AuthService {
                     let email = json["email"].stringValue
                     let name = json["name"].stringValue
                     
+                    MessageService.instance.findAllChannel(completion: { (success) in
+                        if success {
+                            print("successfully got all channels when login")
+                            print("channels count: \(MessageService.instance.channels.count)")
+                            return
+                        } else {
+                            print("got channels failed while login")
+                            return
+                        }
+                    })
+                    
                     UserDataService.instance.setUserData(id: id, color: color, avatarName: avatarName, email: email, name: name)
                     completion(true)
                 } catch {
@@ -139,10 +150,19 @@ class AuthService {
     func findUserByEmail(completion: @escaping CompletionHandler) {
         
         Alamofire.request("\(URL_USER_BY_EMAIL)\(userEmail)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
-            
             if response.result.error == nil {
                 guard let data = response.data else { return }
                 self.setUserInfo(data: data)
+//                MessageService.instance.findAllChannel(completion: { (success) in
+//                    if success {
+//                        print("successfully got all channels when login")
+//                        print("channels count: \(MessageService.instance.channels.count)")
+//                        return
+//                    } else {
+//                        print("got channels failed while login")
+//                        return
+//                    }
+//                })
                 completion(true)
             } else {
                 completion(false)
@@ -159,6 +179,8 @@ class AuthService {
             let avatarName = json["avatarName"].stringValue
             let email = json["email"].stringValue
             let name = json["name"].stringValue
+            print("find user by email:")
+            print("id: \(id), avatarName: \(avatarName), email: \(email)")
             UserDataService.instance.setUserData(id: id, color: color, avatarName: avatarName, email: email, name: name)
         } catch {
             print(error.localizedDescription)

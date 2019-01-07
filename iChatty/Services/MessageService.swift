@@ -17,6 +17,7 @@ class MessageService {
     let defaults = UserDefaults.standard
     
     var channels: [Channel] = []
+    var selectedChannel: Channel?
     
     func findAllChannel(completion: @escaping CompletionHandler) {
         Alamofire.request(URL_GET_CHANNELS, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
@@ -33,6 +34,7 @@ class MessageService {
                         self.channels.append(channel)
                     }
                     print("all the channels: \(self.channels)")
+                    NotificationCenter.default.post(name: NOTIF_CHANNELS_LOADED, object: nil)
                     completion(true)
                 } catch {
                     print(error.localizedDescription)

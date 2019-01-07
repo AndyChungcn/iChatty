@@ -38,8 +38,8 @@ class SocketService: NSObject {
     
     func getChannel(completion: @escaping CompletionHandler) {
         socket.on("channelCreated") { (dataArray, ack) in
-            guard let channelDesc = dataArray[0] as? String else { return }
-            guard let channelName = dataArray[1] as? String else { return }
+            guard let channelName = dataArray[0] as? String else { return }
+            guard let channelDesc = dataArray[1] as? String else { return }
             guard let channelId = dataArray[2] as? String else { return }
             let newChannel = Channel(channelTitle: channelName, channelDescription: channelDesc, id: channelId)            
             MessageService.instance.channels.append(newChannel)

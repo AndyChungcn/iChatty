@@ -13,6 +13,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddChannelVC" customModule="iChatty" customModuleProvider="target">
             <connections>
                 <outlet property="bgView" destination="hDU-SF-KQM" id="Zd3-Kx-yPg"/>
+                <outlet property="cardView" destination="MTg-jX-tBz" id="6W7-lF-HUV"/>
                 <outlet property="descriptionLabel" destination="OS0-ti-6Wf" id="oti-aX-b5H"/>
                 <outlet property="nameLabel" destination="Pmo-2n-xSa" id="Ghh-tz-guu"/>
                 <outlet property="view" destination="iN0-l3-epB" id="7kr-ml-72g"/>
@@ -28,7 +29,7 @@
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MTg-jX-tBz">
-                    <rect key="frame" x="20" y="140" width="335" height="320"/>
+                    <rect key="frame" x="20" y="173.5" width="335" height="320"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Channel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YkG-bh-dgK">
                             <rect key="frame" x="86" y="40" width="163" height="26.5"/>
@@ -36,7 +37,7 @@
                             <color key="textColor" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tji-ay-wX4" customClass="RoundedButton" customModule="Smack" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tji-ay-wX4" customClass="RoundedButton" customModule="iChatty" customModuleProvider="target">
                             <rect key="frame" x="42.5" y="250" width="250" height="50"/>
                             <color key="backgroundColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
@@ -119,6 +120,11 @@
                         <constraint firstAttribute="trailing" secondItem="trb-wQ-gR2" secondAttribute="trailing" constant="8" id="xcr-Qu-Qpd"/>
                         <constraint firstItem="Vtd-80-bnn" firstAttribute="centerY" secondItem="MTg-jX-tBz" secondAttribute="centerY" constant="-10" id="zkd-my-6aE"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.20224208047945205" colorSpace="custom" customColorSpace="sRGB"/>
@@ -126,10 +132,10 @@
                 <constraint firstItem="hDU-SF-KQM" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" id="3dF-j5-xfU"/>
                 <constraint firstItem="hDU-SF-KQM" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Cbo-hc-frV"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="MTg-jX-tBz" secondAttribute="trailing" constant="20" id="N9j-jL-Cd2"/>
-                <constraint firstItem="MTg-jX-tBz" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="120" id="Qy7-jY-qxK"/>
                 <constraint firstItem="MTg-jX-tBz" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="SDe-oV-aES"/>
                 <constraint firstItem="hDU-SF-KQM" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gKE-eo-KnY"/>
                 <constraint firstItem="hDU-SF-KQM" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="hDF-WB-7Gz"/>
+                <constraint firstItem="MTg-jX-tBz" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="hLr-w7-x5L"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
         </view>
