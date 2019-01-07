@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C04206F21E37B0E0087F4C4 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C04206E21E37B0E0087F4C4 /* Message.swift */; };
 		5CBD373B21E222E700B30250 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD373A21E222E700B30250 /* Channel.swift */; };
 		5CBD373D21E2234200B30250 /* MessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD373C21E2234200B30250 /* MessageService.swift */; };
 		5CBD373F21E22A4400B30250 /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CBD373E21E22A4400B30250 /* ChannelCell.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5C04206E21E37B0E0087F4C4 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		5CBD373A21E222E700B30250 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
 		5CBD373C21E2234200B30250 /* MessageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageService.swift; sourceTree = "<group>"; };
 		5CBD373E21E22A4400B30250 /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				5CBD373A21E222E700B30250 /* Channel.swift */,
+				5C04206E21E37B0E0087F4C4 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 				5CD1631121E0A6DB006BE081 /* AvatarPickerVC.swift in Sources */,
 				5CD1631A21E0CCBD006BE081 /* CircleImage.swift in Sources */,
 				5CBD373B21E222E700B30250 /* Channel.swift in Sources */,
+				5C04206F21E37B0E0087F4C4 /* Message.swift in Sources */,
 				5CD1632121E0E936006BE081 /* ProfileVC.swift in Sources */,
 				5CD1631C21E0D0B3006BE081 /* AvatarCell.swift in Sources */,
 				5CD1630D21E08D3C006BE081 /* LoginVC.swift in Sources */,

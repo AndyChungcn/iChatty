@@ -40,7 +40,6 @@ class ChatVC: UIViewController {
         }
     }
     
-    
     @objc func userDataDidChange() {
         if AuthService.instance.isLoggedIn {
             onLoginGetChannels()
@@ -56,11 +55,31 @@ class ChatVC: UIViewController {
     func updateWithChannel() {
         let channelName = MessageService.instance.selectedChannel?.channelTitle ?? ""
         channelNameLabel.text = channelName
+        getMessages()
     }
     
     func onLoginGetChannels() {
         MessageService.instance.findAllChannel { (success) in
-            if success {}
+            if success {
+                if MessageService.instance.channels.count > 0 {
+                    MessageService.instance.selectedChannel = MessageService.instance.channels[0]
+                    self.updateWithChannel()
+                } else {
+                    self.channelNameLabel.text = "No channel yet!"
+                }
+            }
+        }
+    }
+    
+    func getMessages() {
+        guard let channelId = MessageService.instance.selectedChannel?.id else { return }
+        print("channeldId: \(channelId)")
+        MessageService.instance.findAllMessages(channelId: channelId) { (success) in
+            if success {
+                print("All the messages of \(String(describing: MessageService.instance.selectedChannel?.channelTitle)): \(MessageService.instance.messages)")
+            } else {
+                print("failed to get messages")
+            }
         }
     }
 }
