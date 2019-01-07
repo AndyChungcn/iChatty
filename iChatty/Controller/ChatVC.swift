@@ -14,9 +14,22 @@ class ChatVC: UIViewController {
     @IBOutlet weak var menuBtn: UIButton!
     @IBOutlet weak var channelNameLabel: UILabel!
     @IBOutlet weak var messageTextField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.bindtoKeyboard()
+        
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.allowsSelection = false
+        tableView.estimatedRowHeight = 80
+        tableView.rowHeight = UITableView.automaticDimension
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        view.addGestureRecognizer(tapGesture)
         
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         self.view.addGestureRecognizer((self.revealViewController()?.panGestureRecognizer())!)
@@ -40,6 +53,9 @@ class ChatVC: UIViewController {
         }
     }
     
+    @objc func handleTap() {
+        view.endEditing(true)
+    }
     
     @IBAction func sendBtnTapped(_ sender: Any) {
         
@@ -54,10 +70,6 @@ class ChatVC: UIViewController {
                 }
             }
         }
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
     }
     
     @objc func userDataDidChange() {
@@ -96,10 +108,31 @@ class ChatVC: UIViewController {
         print("channeldId: \(channelId)")
         MessageService.instance.findAllMessages(channelId: channelId) { (success) in
             if success {
+                self.tableView.reloadData()
                 print("All the messages of \(String(describing: MessageService.instance.selectedChannel?.channelTitle)): \(MessageService.instance.messages)")
             } else {
                 print("failed to get messages")
             }
         }
     }
+}
+
+
+// MARK: - UITableView Protocol
+extension ChatVC: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return MessageService.instance.messages.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: MESSAGE_CELL, for: indexPath) as? MessageCell {
+            print("message: \(MessageService.instance.messages[indexPath.row])")
+            cell.configureCell(message: MessageService.instance.messages[indexPath.row])
+            return cell
+        } else {
+            return UITableViewCell()
+        }
+    }
+    
 }

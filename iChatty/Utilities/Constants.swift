@@ -23,7 +23,6 @@ let URL_GET_MESSAGES = "\(BASE_URL)message/byChannel/"
 let HEADER = [
     "Content-type": "application/json; charset=utf-8"
 ]
-
 let BEARER_HEADER = [
     "Authorization":"Bearer \(AuthService.instance.authToken)",
     "Content-Type": "application/json; charset=utf-8"
@@ -52,5 +51,6 @@ let NOTIF_USER_DATA_DID_CHANGE = Notification.Name("notifUserDataChanged")
 let NOTIF_CHANNELS_LOADED = Notification.Name("channelsLoaded")
 let NOTIF_CHANNEL_SELECTED = Notification.Name("chanenlSelected")
 
-
+// UI Constants
 let CHANNEL_CELL = "channelCell"
+let MESSAGE_CELL = "messageCell"
