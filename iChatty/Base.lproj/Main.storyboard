@@ -37,8 +37,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgP-lE-PK9">
-                                <rect key="frame" x="16" y="44" width="63" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iChatty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgP-lE-PK9">
+                                <rect key="frame" x="16" y="44" width="64.5" height="23"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -298,8 +298,8 @@
                                         </constraints>
                                         <state key="normal" image="smackBurger"/>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTm-7l-d7W">
-                                        <rect key="frame" x="161.5" y="45.5" width="52" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iChatty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTm-7l-d7W">
+                                        <rect key="frame" x="160" y="45.5" width="55" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -323,9 +323,6 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="messageTextFieldEditing:" destination="vcO-tM-bo8" eventType="editingDidEnd" id="scT-ny-oPJ"/>
-                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PlF-SR-A3s">
                                 <rect key="frame" x="333" y="629.5" width="30" height="30"/>
@@ -400,6 +397,12 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPj-mZ-oc2">
+                                <rect key="frame" x="16" y="593" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -409,10 +412,12 @@
                             <constraint firstItem="PlF-SR-A3s" firstAttribute="centerY" secondItem="BIq-l8-LkQ" secondAttribute="centerY" id="H9f-KA-mH3"/>
                             <constraint firstItem="BIq-l8-LkQ" firstAttribute="trailing" secondItem="4y4-6i-DeG" secondAttribute="trailing" id="Te0-gH-kv5"/>
                             <constraint firstItem="ZC6-gO-L8l" firstAttribute="trailing" secondItem="4y4-6i-DeG" secondAttribute="trailing" id="aWa-Dz-KEJ"/>
+                            <constraint firstItem="pPj-mZ-oc2" firstAttribute="leading" secondItem="4y4-6i-DeG" secondAttribute="leading" constant="16" id="gET-9a-TZT"/>
                             <constraint firstItem="BIq-l8-LkQ" firstAttribute="leading" secondItem="4y4-6i-DeG" secondAttribute="leading" id="hda-AR-h4S"/>
                             <constraint firstItem="abT-1i-Toz" firstAttribute="leading" secondItem="4y4-6i-DeG" secondAttribute="leading" id="lCD-Py-yy4"/>
                             <constraint firstItem="abT-1i-Toz" firstAttribute="trailing" secondItem="4y4-6i-DeG" secondAttribute="trailing" id="m3K-6O-Y3e"/>
                             <constraint firstItem="ZC6-gO-L8l" firstAttribute="leading" secondItem="4y4-6i-DeG" secondAttribute="leading" id="mL8-Fq-eq5"/>
+                            <constraint firstItem="BIq-l8-LkQ" firstAttribute="top" secondItem="pPj-mZ-oc2" secondAttribute="bottom" constant="8" id="ph3-sd-Y3R"/>
                             <constraint firstItem="4y4-6i-DeG" firstAttribute="trailing" secondItem="PlF-SR-A3s" secondAttribute="trailing" constant="12" id="ulS-2B-aXH"/>
                             <constraint firstItem="ZC6-gO-L8l" firstAttribute="top" secondItem="abT-1i-Toz" secondAttribute="bottom" id="zBa-rn-Inm"/>
                         </constraints>
@@ -424,6 +429,7 @@
                         <outlet property="messageTextField" destination="BIq-l8-LkQ" id="tZo-bf-GSJ"/>
                         <outlet property="sendBtn" destination="PlF-SR-A3s" id="Ius-3k-25F"/>
                         <outlet property="tableView" destination="ZC6-gO-L8l" id="K4t-VD-vAq"/>
+                        <outlet property="typingUserLabel" destination="pPj-mZ-oc2" id="tz2-mN-MzM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tfq-7n-9Pi" userLabel="First Responder" sceneMemberID="firstResponder"/>

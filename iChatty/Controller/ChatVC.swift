@@ -16,7 +16,7 @@ class ChatVC: UIViewController {
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sendBtn: UIButton!
-    
+    @IBOutlet weak var typingUserLabel: UILabel!    
     
     // Variables
     var isTyping = false
@@ -24,7 +24,8 @@ class ChatVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.bindtoKeyboard()
+        view.bindtoKeyboard()        
+        messageTextField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -60,20 +61,50 @@ class ChatVC: UIViewController {
                 }
             }
         }
+        
+        SocketService.instance.getTypingUsers { (typingUsers) in
+            guard let channelId = MessageService.instance.selectedChannel?.id else { return }
+            var names = ""
+            var numberOfTypers = 0
+
+            for (typingUser, channel) in typingUsers {
+                if typingUser != UserDataService.instance.name && channel == channelId {
+                    print("typingUser: \(typingUser)")
+                    if names == "" {
+                        names = typingUser
+                    } else {
+                        names = "\(names), \(typingUser)"
+                    }
+                    numberOfTypers += 1
+                }
+            }
+
+            if numberOfTypers > 0 && AuthService.instance.isLoggedIn == true {
+                var verb = "is"
+                if numberOfTypers > 1 {
+                    verb = "are"
+                }
+                self.typingUserLabel.text = "\(names) \(verb) typing"
+            } else {
+                self.typingUserLabel.text = ""
+            }
+        }
     }
     
     @objc func handleTap() {
         view.endEditing(true)
     }
     
-    
-    @IBAction func messageTextFieldEditing(_ sender: Any) {
+    @objc func textFieldDidChange() {
+        guard let channelId = MessageService.instance.selectedChannel?.id else { return }
         if messageTextField.text == "" {
             isTyping = false
             sendBtn.isHidden = true
+            SocketService.instance.socket.emit("stopType", UserDataService.instance.name, channelId)
         } else {
             if isTyping == false {
                 sendBtn.isHidden = false
+                SocketService.instance.socket.emit("startType", UserDataService.instance.name, channelId)
             }
             isTyping = true
         }
@@ -110,6 +141,7 @@ class ChatVC: UIViewController {
     func updateWithChannel() {
         let channelName = MessageService.instance.selectedChannel?.channelTitle ?? ""
         channelNameLabel.text = channelName
+        sendBtn.isHidden = true
         getMessages()
     }
     
@@ -130,7 +162,7 @@ class ChatVC: UIViewController {
         guard let channelId = MessageService.instance.selectedChannel?.id else { return }
         MessageService.instance.findAllMessages(channelId: channelId) { (success) in
             if success {
-                self.tableView.reloadData()                
+                self.tableView.reloadData()
             }
         }
     }

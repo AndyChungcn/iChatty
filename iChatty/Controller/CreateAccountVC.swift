@@ -9,7 +9,7 @@
 import UIKit
 
 class CreateAccountVC: UIViewController {
-
+    
     // Outlets
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -52,7 +52,7 @@ class CreateAccountVC: UIViewController {
             self.avatarImageView.backgroundColor = self.bgColor
         }
     }
-
+    
     @IBAction func closeBtnTapped(_ sender: Any) {
         performSegue(withIdentifier: UNWIND, sender: nil)
     }
@@ -73,9 +73,7 @@ class CreateAccountVC: UIViewController {
                             if success {
                                 self.spinner.isHidden = true
                                 self.spinner.stopAnimating()
-                                DispatchQueue.main.async {
-                                    self.performSegue(withIdentifier: UNWIND, sender: nil)
-                                }                                
+                                self.performSegue(withIdentifier: UNWIND, sender: nil)
                                 NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
                             }
                         })
