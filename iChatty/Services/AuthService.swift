@@ -124,17 +124,6 @@ class AuthService {
                     let email = json["email"].stringValue
                     let name = json["name"].stringValue
                     
-                    MessageService.instance.findAllChannel(completion: { (success) in
-                        if success {
-                            print("successfully got all channels when login")
-                            print("channels count: \(MessageService.instance.channels.count)")
-                            return
-                        } else {
-                            print("got channels failed while login")
-                            return
-                        }
-                    })
-                    
                     UserDataService.instance.setUserData(id: id, color: color, avatarName: avatarName, email: email, name: name)
                     completion(true)
                 } catch {
@@ -153,16 +142,6 @@ class AuthService {
             if response.result.error == nil {
                 guard let data = response.data else { return }
                 self.setUserInfo(data: data)
-//                MessageService.instance.findAllChannel(completion: { (success) in
-//                    if success {
-//                        print("successfully got all channels when login")
-//                        print("channels count: \(MessageService.instance.channels.count)")
-//                        return
-//                    } else {
-//                        print("got channels failed while login")
-//                        return
-//                    }
-//                })
                 completion(true)
             } else {
                 completion(false)

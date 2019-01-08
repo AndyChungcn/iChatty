@@ -56,7 +56,7 @@ class MessageService {
                 guard let data = response.data else { return }
                 do {
                     let json = try JSON(data: data).array
-                    for item in json! {                        
+                    for item in json! {
                         let messageBody = item["messageBody"].stringValue
                         let channelId = item["channelId"].stringValue
                         let id = item["_id"].stringValue
@@ -67,8 +67,8 @@ class MessageService {
                         
                         let message = Message(message: messageBody, userName: userName, channelId: channelId, userAvatar: userAvatar, userAvatarColor: userAvatarColor, id: id, timeStamp: timeStamp)
                         self.messages.append(message)
-                        completion(true)
                     }
+                    completion(true)
                 } catch {
                     print(error.localizedDescription)
                     completion(false)

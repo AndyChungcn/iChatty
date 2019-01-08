@@ -15,7 +15,11 @@ class ChatVC: UIViewController {
     @IBOutlet weak var channelNameLabel: UILabel!
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var sendBtn: UIButton!
     
+    
+    // Variables
+    var isTyping = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,12 +38,7 @@ class ChatVC: UIViewController {
         menuBtn.addTarget(self.revealViewController(), action: #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
         self.view.addGestureRecognizer((self.revealViewController()?.panGestureRecognizer())!)
         self.view.addGestureRecognizer((self.revealViewController()?.tapGestureRecognizer())!)
-        
-        print("=======")
-        print(UserDataService.instance.avatarName)
-        print(UserDataService.instance.email)
-        print("=======")
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.userDataDidChange), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ChatVC.channelSelected), name: NOTIF_CHANNEL_SELECTED, object: nil)
         
@@ -51,10 +50,33 @@ class ChatVC: UIViewController {
                 }
             }
         }
+        
+        SocketService.instance.getMessage { (success) in
+            if success {
+                self.tableView.reloadData()
+                if MessageService.instance.messages.count > 0 {
+                    let endIndex = IndexPath(row: MessageService.instance.messages.count - 1, section: 0)
+                    self.tableView.scrollToRow(at: endIndex, at: .bottom, animated: false)
+                }
+            }
+        }
     }
     
     @objc func handleTap() {
         view.endEditing(true)
+    }
+    
+    
+    @IBAction func messageTextFieldEditing(_ sender: Any) {
+        if messageTextField.text == "" {
+            isTyping = false
+            sendBtn.isHidden = true
+        } else {
+            if isTyping == false {
+                sendBtn.isHidden = false
+            }
+            isTyping = true
+        }
     }
     
     @IBAction func sendBtnTapped(_ sender: Any) {
@@ -77,6 +99,7 @@ class ChatVC: UIViewController {
             onLoginGetChannels()
         } else {
             channelNameLabel.text = "Please Login"
+            tableView.reloadData()
         }
     }
     
@@ -105,13 +128,9 @@ class ChatVC: UIViewController {
     
     func getMessages() {
         guard let channelId = MessageService.instance.selectedChannel?.id else { return }
-        print("channeldId: \(channelId)")
         MessageService.instance.findAllMessages(channelId: channelId) { (success) in
             if success {
-                self.tableView.reloadData()
-                print("All the messages of \(String(describing: MessageService.instance.selectedChannel?.channelTitle)): \(MessageService.instance.messages)")
-            } else {
-                print("failed to get messages")
+                self.tableView.reloadData()                
             }
         }
     }
@@ -127,8 +146,9 @@ extension ChatVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: MESSAGE_CELL, for: indexPath) as? MessageCell {
-            print("message: \(MessageService.instance.messages[indexPath.row])")
-            cell.configureCell(message: MessageService.instance.messages[indexPath.row])
+            if MessageService.instance.messages.count > 0 {
+                cell.configureCell(message: MessageService.instance.messages[indexPath.row])
+            }
             return cell
         } else {
             return UITableViewCell()

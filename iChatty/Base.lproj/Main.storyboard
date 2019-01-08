@@ -323,6 +323,9 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="messageTextFieldEditing:" destination="vcO-tM-bo8" eventType="editingDidEnd" id="scT-ny-oPJ"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PlF-SR-A3s">
                                 <rect key="frame" x="333" y="629.5" width="30" height="30"/>
@@ -348,7 +351,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="pNJ-Vu-nvy" customClass="CircleImage" customModule="Smack" customModuleProvider="target">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="pNJ-Vu-nvy" customClass="CircleImage" customModule="iChatty" customModuleProvider="target">
                                                     <rect key="frame" x="15" y="11" width="50" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="50" id="NkH-mO-dxb"/>
@@ -419,6 +422,7 @@
                         <outlet property="channelNameLabel" destination="fTm-7l-d7W" id="aR2-tb-0Zn"/>
                         <outlet property="menuBtn" destination="iPj-Xb-L0b" id="s6i-dN-wff"/>
                         <outlet property="messageTextField" destination="BIq-l8-LkQ" id="tZo-bf-GSJ"/>
+                        <outlet property="sendBtn" destination="PlF-SR-A3s" id="Ius-3k-25F"/>
                         <outlet property="tableView" destination="ZC6-gO-L8l" id="K4t-VD-vAq"/>
                     </connections>
                 </viewController>
