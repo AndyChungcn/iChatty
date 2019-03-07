@@ -28,8 +28,8 @@ class AddChannelVC: UIViewController {
         let cardTapGesture = UITapGestureRecognizer(target: self, action: #selector(cardTap))
         cardView.addGestureRecognizer(cardTapGesture)
         
-        nameLabel.attributedPlaceholder = NSAttributedString(string: "name", attributes: [NSAttributedString.Key.foregroundColor : smackPurplePlaceholder])
-        descriptionLabel.attributedPlaceholder = NSAttributedString(string: "description", attributes: [NSAttributedString.Key.foregroundColor : smackPurplePlaceholder])
+        nameLabel.attributedPlaceholder = NSAttributedString(string: "频道名", attributes: [NSAttributedString.Key.foregroundColor : smackPurplePlaceholder])
+        descriptionLabel.attributedPlaceholder = NSAttributedString(string: "简介", attributes: [NSAttributedString.Key.foregroundColor : smackPurplePlaceholder])
     }
     
     @objc func cardTap() {

@@ -71,7 +71,7 @@ class ChatVC: UIViewController {
 
             for (typingUser, channel) in typingUsers {
                 if typingUser != UserDataService.instance.name && channel == channelId {
-                    print("typingUser: \(typingUser)")
+                    print("正在输入: \(typingUser)")
                     if names == "" {
                         names = typingUser
                     } else {
@@ -86,7 +86,7 @@ class ChatVC: UIViewController {
                 if numberOfTypers > 1 {
                     verb = "are"
                 }
-                self.typingUserLabel.text = "\(names) \(verb) typing..."
+                self.typingUserLabel.text = "\(names) \(verb) 正在输入..."
             } else {
                 self.typingUserLabel.text = ""
             }
@@ -121,7 +121,7 @@ class ChatVC: UIViewController {
             SocketService.instance.addMessage(messageBody: message, userId: UserDataService.instance.id, channelId: channelId) { (success) in
                 if success {
                     self.messageTextField.text = ""
-                    self.messageTextField.resignFirstResponder()
+//                    self.messageTextField.resignFirstResponder()
                 }
             }
         }
@@ -131,7 +131,7 @@ class ChatVC: UIViewController {
         if AuthService.instance.isLoggedIn {
             onLoginGetChannels()
         } else {
-            channelNameLabel.text = "Please Login"
+            channelNameLabel.text = "请登录"
             tableView.reloadData()
         }
     }
@@ -154,7 +154,7 @@ class ChatVC: UIViewController {
                     MessageService.instance.selectedChannel = MessageService.instance.channels[0]
                     self.updateWithChannel()
                 } else {
-                    self.channelNameLabel.text = "No channel yet!"
+                    self.channelNameLabel.text = "还没有频道，创建一个？"
                 }
             }
         }

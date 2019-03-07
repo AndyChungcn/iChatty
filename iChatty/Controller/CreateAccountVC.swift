@@ -18,7 +18,7 @@ class CreateAccountVC: UIViewController {
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     // Variables
-    var avatarName = "Default Name"
+    var avatarName = "默认"
     var avatarColor = "[0.5, 0.5, 0.5, 1]"
     var bgColor: UIColor?
     
@@ -87,9 +87,9 @@ class CreateAccountVC: UIViewController {
     
     func setupView() {
         spinner.isHidden = true
-        usernameTextField.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceholder])
-        emailTextField.attributedPlaceholder = NSAttributedString(string: "email", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceholder])
-        passwordTextField.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceholder])
+        usernameTextField.attributedPlaceholder = NSAttributedString(string: "用户名", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceholder])
+        emailTextField.attributedPlaceholder = NSAttributedString(string: "邮箱", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceholder])
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: "密码", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceholder])
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

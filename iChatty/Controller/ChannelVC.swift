@@ -60,7 +60,7 @@ class ChannelVC: UIViewController {
             avatarImageView.image = UIImage(named: UserDataService.instance.avatarName)
             avatarImageView.backgroundColor = UserDataService.instance.returnUIColor(components: UserDataService.instance.avatarColor)
         } else {
-            loginBtn.setTitle("Login", for: .normal)
+            loginBtn.setTitle("登录", for: .normal)
             avatarImageView.image = UIImage(named: "menuProfileIcon")
             avatarImageView.backgroundColor = UIColor.clear
             tableView.reloadData()

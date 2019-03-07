@@ -52,8 +52,8 @@ class LoginVC: UIViewController {
 
     func setupView() {
         spinner.isHidden = true
-        usernameTextField.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceholder])
-        passwordTextfield.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceholder])
+        usernameTextField.attributedPlaceholder = NSAttributedString(string: "用户名", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceholder])
+        passwordTextfield.attributedPlaceholder = NSAttributedString(string: "密码", attributes: [NSAttributedString.Key.foregroundColor: smackPurplePlaceholder])
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
